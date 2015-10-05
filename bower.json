@@ -1,0 +1,21 @@
+{
+  "name": "barleyment_calendar",
+  "version": "0.0.1",
+  "homepage": "https://github.com/BrAwnyTime/BarleymentCalendar",
+  "authors": [
+    "Brad Aune <bradaune@gmail.com>"
+  ],
+  "description": "MoB Shared Calendar",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}
