@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong class="panel-title"><%= event.title %></strong>
+    <% if event.all_day %>
+      <span class="small">on <%= event.start_datetime.to_date.to_formatted_s :long %></span>
+      <span class="badge pull-right">All Day</span>
+    <% else %>
+      <span class="small">from <%= event.start_datetime.to_formatted_s :long %> to <%= event.end_datetime.to_formatted_s :long %></span>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <%= event.description %>
+  </div>
+</div>
+
