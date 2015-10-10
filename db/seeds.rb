@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+brad = User.new email: "bradaune@gmail.com", password: "testtest", password_confirmation: "testtest"
+brad.skip_confirmation!
+brad.save
+dan = User.new email: "dancmorton@gmail.com", password: "testtest", password_confirmation: "testtest"
+dan.skip_confirmation!
+dan.save
+
 def round_to_half_hour(time)
 	if time.min >= 45
 		time += (60 - time.min).minutes
@@ -26,7 +33,8 @@ end
 			description: Faker::Lorem.paragraph,
 			all_day: false,
 			start_datetime: start,
-			end_datetime: start + duration
+			end_datetime: start + duration,
+      user: brad
 		)
 end
 
@@ -35,6 +43,7 @@ end
 			title: Faker::Hacker.noun,
 			description: Faker::Lorem.paragraph,
 			all_day: true,
-			start_datetime: round_to_half_hour(Faker::Time.between(1.month.ago, 1.month.from_now).at_beginning_of_minute)
+			start_datetime: round_to_half_hour(Faker::Time.between(1.month.ago, 1.month.from_now).at_beginning_of_minute),
+      user: brad
 		)
 end

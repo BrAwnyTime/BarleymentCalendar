@@ -4,8 +4,29 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
 two: {}
 #  column: value
+all_day_event:
+  title: "All day event"
+  description: "Desc..."
+  all_day: true
+  start_datetime: "2015-08-25 08:00:00"
+  end_datetime: "2015-08-25 16:00:00"
+  user: user
+
+event:
+  title: "Event"
+  description: "Desc..."
+  all_day: false
+  start_datetime: "2015-10-05 10:30:00"
+  end_datetime: "2015-10-05 12:00:00"
+  user: user
+
+other_user_event:
+  title: "Event by Other User"
+  description: "Desc..."
+  all_day: false
+  start_datetime: "2015-10-05 10:30:00"
+  end_datetime: "2015-10-05 12:00:00"
+  user: other_user
+

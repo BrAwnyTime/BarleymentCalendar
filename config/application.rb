@@ -23,8 +23,5 @@ module BarleymentCalendar
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
-    #whitelist web_console
-    config.web_console.whitelisted_ips = '23.233.58.126'
   end
 end
