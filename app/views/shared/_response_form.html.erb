@@ -1,0 +1,18 @@
+<%= form_for [@event, @response] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.select(:response, [["Attending", 1, {'data-content' => "<span class='label label-success'>I'm going</span>"}], ["Maybe", 0, {'data-content' => "<span class='label label-warning'>Maybe</span>"}], ["Hells no", -1, {'data-content' => "<span class='label label-danger'>Not attending</span>"}]], {prompt: "Select your response"}, {class: "selectpicker"}) %>
+  </div> 
+  <script>
+    $( document ).ready(function() {
+      $('.selectpicker').selectpicker();
+    });
+  </script>
+  <div class="form-group">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+    <% if !@response.new_record? %>
+      <%= link_to "Remove", event_response_path(event_id: @event.id, id:@response.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    <% end %>  
+  </div>
+
+<% end %>

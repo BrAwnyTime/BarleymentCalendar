@@ -1,0 +1,18 @@
+<div class="row">
+  <% if @upcoming_responses.count > 0 %>
+  <div class="col-sm-6">
+  	<h4>Upcoming Events</h4>
+  	<div class="list-group">
+    	<%= render partial: "response", collection: @upcoming_responses %>
+  	</div>
+  </div>
+  <% end %>
+  <% if @old_responses.count > 0 %>
+	  <div class="col-sm-6">
+	  	<h4>Past Events</h4>
+	  	<div class="list-group">
+	    	<%= render partial: "old_response", collection: @old_responses %>
+	  	</div>
+	  </div>  
+  <% end %>
+</div>

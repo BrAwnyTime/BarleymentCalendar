@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require moment
 //= require fullcalendar
+//= require bootstrap-select
 //= require_tree .

@@ -1,0 +1,21 @@
+<% if event.responses.count > 0 %>
+  <div class="btn-group">
+    <% if event.responses.where(response: 1).count > 0 %>
+      <%= link_to event_responses_path(event, anchor: "attending"), { type: "button", class: "btn btn-success" } do %>
+        Attending <span class="badge"><%= event.responses.where(response: 1).count %></span>
+      <% end %>
+    <% end %>
+    <% if event.responses.where(response: 0).count > 0 %>
+      <%= link_to event_responses_path(event, anchor: "maybe"), { type: "button", class: "btn btn-warning" } do %>
+        Maybe <span class="badge"><%= event.responses.where(response: 0).count %></span>
+      <% end %>
+    <% end %>
+    <% if event.responses.where(response: -1).count > 0 %>
+      <%= link_to event_responses_path(event, anchor: "not_attending"), { type: "button", class: "btn btn-danger" } do %>
+        Not attending <span class="badge"><%= event.responses.where(response: -1).count %></span>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <span>No responses</span>
+<% end %>

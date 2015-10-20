@@ -1,0 +1,36 @@
+<div class="row">
+	<% if @responses.count > 0 %>
+		<% if @responses_y.count > 0 %>
+			<div class="col-sm-4">
+				<ul class="list-group">
+					<h4 id="attending" class="list-group-item list-group-item-success">Attending</h4>
+					<% @responses_y.each do |r| %>
+						<li class="list-group-item"><%= r.user.email %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<% if @responses_m.count > 0 %>
+			<div class="col-sm-4">
+				<ul class="list-group">
+					<h4 id="maybe" class="list-group-item list-group-item-warning">Maybe</h4>
+					<% @responses_m.each do |r| %>
+						<li class="list-group-item"><%= r.user.email %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<% if @responses_n.count > 0 %>
+			<div class="col-sm-4">
+				<ul class="list-group">
+					<h4 id="not_attending" class="list-group-item list-group-item-danger">Not attending</h4>
+					<% @responses_n.each do |r| %>
+						<li class="list-group-item"><%= r.user.email %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	<% else %>
+		<h4>This event currently has no responses.</h4>
+	<% end %>
+</div>

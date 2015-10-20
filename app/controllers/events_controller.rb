@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @response = current_user.responses.find_by(event: @event.id) || current_user.responses.build
   end
 
   def new

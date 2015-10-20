@@ -29,21 +29,45 @@ end
 	duration = ((rand(16) + 1) * 30).minutes
 
 	Event.create(
-			title: Faker::Hacker.noun,
-			description: Faker::Lorem.paragraph,
-			all_day: false,
-			start_datetime: start,
-			end_datetime: start + duration,
-      user: brad
-		)
+		title: Faker::Company.catch_phrase,
+		description: Faker::Lorem.paragraph,
+		all_day: false,
+		start_datetime: start,
+		end_datetime: start + duration,
+    user: brad
+	)
+
 end
 
 5.times do
 	Event.create(
-			title: Faker::Hacker.noun,
-			description: Faker::Lorem.paragraph,
-			all_day: true,
-			start_datetime: round_to_half_hour(Faker::Time.between(1.month.ago, 1.month.from_now).at_beginning_of_minute),
-      user: brad
-		)
+		title: Faker::Hacker.noun,
+		description: Faker::Lorem.paragraph,
+		all_day: true,
+		start_datetime: round_to_half_hour(Faker::Time.between(1.month.ago, 1.month.from_now).at_beginning_of_minute),
+    user: brad
+	)
 end
+
+# Create some sample responses
+
+for i in 1...6
+	e = Event.find(i*4)
+
+	Response.create(
+		event: e,
+		user: brad,
+		response: (rand(3) - 1)
+	)
+
+	if i > 4
+		Response.create(
+			event: e,
+			user: dan,
+			response: (rand(3) - 1)
+		)
+	end
+end
+
+
+

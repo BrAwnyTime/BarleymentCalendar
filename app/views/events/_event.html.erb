@@ -1,23 +1,23 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <strong class="panel-title"><%= event.title %></strong>
-    <% if event.all_day %>
-      <span class="small">on <%= event.start_datetime.to_date.to_formatted_s :custom_date %></span>
-      <span class="small">to <%= event.end_datetime.to_date.to_formatted_s :custom_date %></span>
+    <strong class="panel-title"><%= @event.title %></strong>
+    <% if @event.all_day %>
+      <span class="small">on <%= @event.start_datetime.to_date.to_formatted_s :custom_date %></span>
+      <span class="small">to <%= @event.end_datetime.to_date.to_formatted_s :custom_date %></span>
       <span class="badge pull-right">All Day</span>
     <% else %>
-      <span class="small">from <%= event.start_datetime.to_formatted_s :custom_datetime %> to <%= event.end_datetime.to_formatted_s :custom_datetime %></span>
+      <span class="small">from <%= @event.start_datetime.to_formatted_s :custom_datetime %> to <%= @event.end_datetime.to_formatted_s :custom_datetime %></span>
     <% end %>
   </div>
   <div class="panel-body">
-    <%= event.description %>
+    <%= @event.description %>
   </div>
   <div class="panel-footer">
-    <%= link_to "Back", root_path, class: "btn btn-default" %>
-    <% if current_user?(event.user) %>
+    <%= link_to "Return to calendar",  root_path, class: "btn btn-default" %>
+    <% if current_user?(@event.user) %>
       <div class="pull-right">
-        <%= link_to "Edit", edit_event_path(event), class: "btn btn-default" %>
-        <%= link_to "delete", event, method: :delete, class: "btn btn-danger"%>
+        <%= link_to "Edit", edit_event_path(@event), class: "btn btn-default" %>
+        <%= link_to "Delete", @event, method: :delete, class: "btn btn-danger"%>
       </div>
     <% end %>
   </div>
